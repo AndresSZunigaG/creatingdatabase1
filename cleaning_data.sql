@@ -1,10 +1,11 @@
-/****** Script for SelectTopNRows command from SSMS  ******/
-SELECT [player_name]
-      ,[player_country]
-  FROM [coderhouse_project].[dbo].[players]
-  order by player_name
+/*** CLEANING DATA IN THE PROCESS OF CREATING A DATABASE ***/
 
-	-- Problema con datos repetidos en tabla players--
+-- I had to create a database with 7 tables with multiples PK and FK. It gived me some errors with the information in tables: 'players' and 'courses'
+
+-- Problems with repeated data in 'players' --
+
+select * from players order by player_name
+	
 ------------------------------------
 --	player_name		player_country
 ------------------------------------	
@@ -40,66 +41,71 @@ SELECT [player_name]
 --0.55-33-7		;	DE
 --0.6.10m		;	JP
 
--- Limpiar datos sin player_name
+-- Cleaning data without player_name
+select * from players where player_name like ''; 	-- to be sure if it's the correct data
 
--- select * from players where player_name like '';
--- delete from players where player_name like '';
--- delete from players where player_name like ' "';
--- delete from players where player_name like '"';
+-- Delete this data
+delete from players where player_name like '';
+delete from players where player_name like ' "';
+delete from players where player_name like '"';
   
--- Problema con datos repetidos
--- select * from players order by player_country; -- total 255 players raros y sin pais
+-- Problems whit more empty players
+select * from players order by player_country; 		
+-- 255 players with weird names and without country
 
 ---------------------------------------------------------
 --player_name					player_country
---ç¥ž						;
---ç¥ž						;
---æ–						­;
---"ç¥žéŠ"""					;
+--ç¥ž					;
+--ç¥ž					;
+--æ–					;
+--"ç¥žéŠ"""				;
 --"ãƒ‰ãƒŠãƒ«ãƒ‰"""			;
 --"ç´«è­·ãƒªãƒŽãƒ³ã€€"""		;
---"æ”¹é€ è€…âˆšâˆš"""		;
---ç¥ž						;
+--"æ”¹é€ è€…âˆšâˆš"""			;
+--ç¥ž					;
 --"ã†ã‚“ã¡ã€€"""			;
 --"æœ€å¼·"""				;
---é¾						;
---ãƒ›ã‚¿ãƒ«					;
---ç¥ž						;
---ã„						;
---ç¥ž						;
---ã¿						;
+--é¾					;
+--ãƒ›ã‚¿ãƒ«				;
+--ç¥ž					;
+--ã„					;
+--ç¥ž					;
+--ã¿					;
 --"æœ€å¼·"""				;
---ç¥ž						;
+--ç¥ž					;
 --"çŽ‹ã€€ã€€ã€€"""			;
---æ–­						;
---æ­»						;
---W							;
---ç¥ž						;
---ç¥ž						;
---"æ™‚åˆ»è¡¨âˆšã€€ã€€"""	;
---é¾ç¥ž						;
---"æœ€å¼·ç ´å£Šç¥ž"""		;
---"ç¥ž"""					;
+--æ–					;
+--æ»					;
+--W					;
+--ç¥ž					;
+--ç¥ž					;
+--"æ™‚åˆ»è¡¨âˆšã€€ã€€"""		;
+--é¾ç¥ž					;
+--"æœ€å¼·ç ´å£Šç¥ž"""			;
+--"ç¥ž"""				;
 --"ç¥žã€€ã€€ã€€"""			;
 
--- select * from players where player_country like '';
--- delete from players where player_country like '';
+select * from players where player_country like '';		-- to be sure if it's the correct data
 
+delete from players where player_country like '';		-- delete the data
+
+/* PROBLEM SOLVED */	
 	
-	-- Problema con datos repetidos en tabla courses --
 
--- select * from courses order by player_maker;
+-- Problems with data in 'courses' --
 
--- Recuento de cuantos mapas ha creado cada jugador
--- select player_maker, COUNT(course_id) as cuenta from courses group by player_maker order by cuenta desc;
+select * from courses order by player_maker;	-- It gived me courses without creator	
 
--- Ver datos de mapas que no tengan informacion de creador
--- select * from courses order by player_maker,title;
--- select * from courses where  player_maker like '' order by title;
+-- A count of courses for each player_creator
+select player_maker, COUNT(course_id) as cuenta from courses group by player_maker order by cuenta desc;
+
+-- See information with courses by title and without player_creator
+select * from courses where player_maker like '' order by title;
   
--- Actualizar datos de creador de mapa de acuerdo a los 5 primeros
+-- After a research I found the creator of each course
 
 -- Xavierol69
+-- Update each course with his own player_creator
 -- update courses set player_maker = 'Xavierol69' where title like 'A (not so) Beautiful Mind';
 
 --Zerodius
@@ -148,7 +154,5 @@ or title like 'Slippy Saves the Day Again';*/
 --Shiraur
 /*update courses set player_maker = 'Shiraur' where player_maker like '';*/
 
- 
-select * from courses; 
 
-select * from course_meta order by first_clear;
+/* PROBLEM SOLVED */	
