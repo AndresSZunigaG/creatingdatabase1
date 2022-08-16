@@ -109,7 +109,7 @@ select * from courses where player_maker like '' order by title;
 -- update courses set player_maker = 'Xavierol69' where title like 'A (not so) Beautiful Mind';
 
 --Zerodius
-/* update courses set player_maker = 'Zerodius' where title like 'Cy-Zo Mario World'
+update courses set player_maker = 'Zerodius' where title like 'Cy-Zo Mario World'
 or title like 'DasZaubertal'
 or title like 'der chat'
 or title like 'Die Schienenwelt'
@@ -120,10 +120,10 @@ or title like 'Einvaches Level'
 or title like 'Find me'
 or title like 'FireMan'
 or title like 'First course!!!'
-or title like 'Fungal Infection'; */
+or title like 'Fungal Infection'; 
 
 --JustinDianaRalf
-/*update courses set player_maker = 'JustinDianaRalf' where title like 'gefährlich.'
+update courses set player_maker = 'JustinDianaRalf' where title like 'gefährlich.'
 or title like 'gros klein'
 or title like 'Horror Temple'
 or title like 'Illuminati'
@@ -134,10 +134,10 @@ or title like 'le bordel automatique'
 or title like 'les scies circulaires'
 or title like 'Mario gets an Intervention'
 or title like 'mario rage ou pas ?'
-or title like 'Mr. Speed';*/
+or title like 'Mr. Speed';
 
 --drmsj1983
-/*update courses set player_maker = 'drmsj1983' where title like 'Lost Luftschif'
+update courses set player_maker = 'drmsj1983' where title like 'Lost Luftschif'
 or title like 'Nightmares & Seascapes 2'
 or title like 'niveau difficile !!!'
 or title like 'niveau difficile!!!!'
@@ -148,11 +148,11 @@ or title like 'Potpourri'
 or title like 'quellee porte et la bonne'
 or title like 'run  go batre le records'
 or title like 'sans nuage'
-or title like 'Slippy Saves the Day Again';*/
+or title like 'Slippy Saves the Day Again';
 
 
 --Shiraur
-/*update courses set player_maker = 'Shiraur' where player_maker like '';*/
+update courses set player_maker = 'Shiraur' where player_maker like '';
 
 
 /* PROBLEM SOLVED */	
