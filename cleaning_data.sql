@@ -112,7 +112,7 @@ select * from courses where player_maker like '' order by title;
 
 -- Xavierol69
 -- Update each course with his own player_creator
--- update courses set player_maker = 'Xavierol69' where title like 'A (not so) Beautiful Mind';
+update courses set player_maker = 'Xavierol69' where title like 'A (not so) Beautiful Mind';
 
 --Zerodius
 update courses set player_maker = 'Zerodius' where title like 'Cy-Zo Mario World'
